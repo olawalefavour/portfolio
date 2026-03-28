@@ -1,0 +1,450 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double+Ink:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* other css file imports */
+@import url("sections/nav.css");
+@import url("sections/hero.css");
+@import url("sections/about.css");
+@import url("sections/projects.css");
+@import url("sections/skills.css");
+
+@import url("sections/contact.css");
+@import url("sections/footer.css");
+
+
+
+
+:root {
+  --playfair-display: "Playfair Display", serif;
+  --plus-jakarta-sans: "Plus Jakarta Sans", sans-serif;
+  --font-main: 'Poppins', sans-serif;
+  --font-tech: 'Bitcount Prop Double Ink', sans-serif;
+  --primary-color: #CF9FFF;
+  --secondary-color: #121212;
+
+  --black-200: #020202;
+  --black-300: #333333;
+  --black-400: #1f1e31;
+  --black-500: #555555;
+  --gray-100: #888888;
+
+  --color-white: #fff;
+  --color-creamson: #fff0de;
+  --background:
+    radial-gradient(circle at 20% 30%, rgba(216, 180, 254, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(192, 132, 252, 0.12), transparent 40%),
+    #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+
+
+
+body {
+  margin: 0 auto;
+  background: #000000;
+  position: relative;
+}
+
+/* ══════════════════════════════
+   ANIMATED BACKGROUND SYSTEM
+══════════════════════════════ */
+
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Muted dusty lilac — not bright */
+.orb-1 {
+  width: 650px;
+  height: 650px;
+  top: -180px;
+  left: -120px;
+  background: radial-gradient(circle,
+      rgba(167, 110, 220, 0.28) 0%,
+      rgba(120, 60, 180, 0.15) 45%,
+      transparent 70%);
+  animation:
+    fadeOrb 1.5s ease 0.1s forwards,
+    floatA 20s ease-in-out 1.5s infinite;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -80px;
+  right: -80px;
+  background: radial-gradient(circle,
+      rgba(150, 90, 210, 0.22) 0%,
+      rgba(100, 50, 160, 0.12) 50%,
+      transparent 70%);
+  animation:
+    fadeOrb 1.5s ease 0.3s forwards,
+    floatB 25s ease-in-out 1.5s infinite;
+}
+
+.orb-3 {
+  width: 420px;
+  height: 420px;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle,
+      rgba(180, 120, 240, 0.18) 0%,
+      rgba(130, 70, 190, 0.10) 50%,
+      transparent 70%);
+  animation:
+    fadeOrb 1.5s ease 0.5s forwards,
+    floatC 28s ease-in-out 1.5s infinite;
+}
+
+.orb-4 {
+  width: 280px;
+  height: 280px;
+  top: 18%;
+  right: 12%;
+  background: radial-gradient(circle,
+      rgba(200, 150, 255, 0.16) 0%,
+      rgba(140, 80, 200, 0.09) 55%,
+      transparent 70%);
+  animation:
+    fadeOrb 1.5s ease 0.7s forwards,
+    floatD 22s ease-in-out 1.5s infinite;
+}
+
+.orb-5 {
+  width: 220px;
+  height: 220px;
+  bottom: 22%;
+  left: 18%;
+  background: radial-gradient(circle,
+      rgba(160, 100, 230, 0.20) 0%,
+      rgba(110, 55, 170, 0.10) 55%,
+      transparent 70%);
+  animation:
+    fadeOrb 1.5s ease 0.9s forwards,
+    floatE 26s ease-in-out 1.5s infinite;
+}
+
+@keyframes fadeOrb {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatA {
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(55px, 75px) scale(1.07);
+  }
+
+  66% {
+    transform: translate(-35px, 38px) scale(0.96);
+  }
+}
+
+@keyframes floatB {
+
+  0%,
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(-65px, -45px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(45px, -28px) scale(0.97);
+  }
+}
+
+@keyframes floatC {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  33% {
+    transform: translate(calc(-50% + 70px), calc(-50% - 55px)) scale(1.09);
+  }
+
+  66% {
+    transform: translate(calc(-50% - 45px), calc(-50% + 70px)) scale(0.93);
+  }
+}
+
+@keyframes floatD {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-70px, 55px) scale(1.11);
+  }
+}
+
+@keyframes floatE {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(55px, -70px) scale(1.07);
+  }
+}
+
+/* Subtle grid */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(167, 110, 220, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167, 110, 220, 0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Film grain */
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  pointer-events: none;
+}
+
+/* Edge darkening */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 45%, #000000 100%);
+  pointer-events: none;
+}
+
+/* Make all sections sit above the background */
+header,
+section,
+footer {
+  position: relative;
+  z-index: 10;
+}
+
+/* ══════════════════════════════
+   FLOATING DOTS
+══════════════════════════════ */
+
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(167, 110, 220, 0.55);
+  box-shadow: 0 0 6px rgba(167, 110, 220, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  animation: dotFade 1s ease forwards, dotFloat var(--dur) ease-in-out var(--delay) infinite;
+}
+
+/* Size & position for each dot */
+.dot-1 {
+  width: 3px;
+  height: 3px;
+  top: 10%;
+  left: 15%;
+  --dur: 12s;
+  --delay: 0s;
+  --tx: 40px;
+  --ty: -60px;
+}
+
+.dot-2 {
+  width: 2px;
+  height: 2px;
+  top: 25%;
+  left: 72%;
+  --dur: 16s;
+  --delay: 1s;
+  --tx: -50px;
+  --ty: 40px;
+}
+
+.dot-3 {
+  width: 4px;
+  height: 4px;
+  top: 60%;
+  left: 8%;
+  --dur: 14s;
+  --delay: 2s;
+  --tx: 60px;
+  --ty: -30px;
+}
+
+.dot-4 {
+  width: 2px;
+  height: 2px;
+  top: 80%;
+  left: 55%;
+  --dur: 18s;
+  --delay: 0.5s;
+  --tx: -35px;
+  --ty: -55px;
+}
+
+.dot-5 {
+  width: 3px;
+  height: 3px;
+  top: 45%;
+  left: 88%;
+  --dur: 13s;
+  --delay: 3s;
+  --tx: -60px;
+  --ty: 30px;
+}
+
+.dot-6 {
+  width: 2px;
+  height: 2px;
+  top: 5%;
+  left: 50%;
+  --dur: 20s;
+  --delay: 1.5s;
+  --tx: 30px;
+  --ty: 70px;
+}
+
+.dot-7 {
+  width: 4px;
+  height: 4px;
+  top: 70%;
+  left: 30%;
+  --dur: 15s;
+  --delay: 2.5s;
+  --tx: 50px;
+  --ty: -40px;
+}
+
+.dot-8 {
+  width: 2px;
+  height: 2px;
+  top: 35%;
+  left: 40%;
+  --dur: 22s;
+  --delay: 0.8s;
+  --tx: -45px;
+  --ty: 60px;
+}
+
+.dot-9 {
+  width: 3px;
+  height: 3px;
+  top: 88%;
+  left: 78%;
+  --dur: 17s;
+  --delay: 4s;
+  --tx: -30px;
+  --ty: -70px;
+}
+
+.dot-10 {
+  width: 2px;
+  height: 2px;
+  top: 18%;
+  left: 92%;
+  --dur: 11s;
+  --delay: 1.2s;
+  --tx: -55px;
+  --ty: 35px;
+}
+
+.dot-11 {
+  width: 3px;
+  height: 3px;
+  top: 52%;
+  left: 22%;
+  --dur: 19s;
+  --delay: 3.5s;
+  --tx: 70px;
+  --ty: 20px;
+}
+
+.dot-12 {
+  width: 2px;
+  height: 2px;
+  top: 92%;
+  left: 42%;
+  --dur: 14s;
+  --delay: 2.2s;
+  --tx: 40px;
+  --ty: -50px;
+}
+
+
+section,
+footer {
+  position: relative;
+  z-index: 10;
+}
+
+header {
+  z-index: 9999;
+}
+
+@keyframes dotFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dotFloat {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(var(--tx), var(--ty));
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
