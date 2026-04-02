@@ -453,6 +453,42 @@
     });
 
   </script>
+
+  <script>
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    message: form.message.value,
+  };
+
+  const button = form.querySelector("button");
+  button.innerText = "Sending...";
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      button.innerText = "Sent!";
+      form.reset();
+    } else {
+      button.innerText = "Try Again";
+    }
+  } catch (err) {
+    button.innerText = "Error!";
+  }
+});
+</script>
 </body>
 
 </html>
