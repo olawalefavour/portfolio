@@ -390,7 +390,7 @@
       </div>
 
       <!-- Right Column – Form -->
-      <form class="contact-form" action="mailto:olawalekoladefavour@gmail.com" method="POST" enctype="text/plain"
+      <form class="contact-form"  method="POST" enctype="text/plain"
         data-aos="fade-left">
         <div>
           <label class="form-label">Full Name</label>
@@ -452,32 +452,6 @@
       });
     });
 
-    const form = document.querySelector("form");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const data = {
-    name: form.name.value,
-    email: form.email.value,
-    message: form.message.value,
-  };
-
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-
-  if (res.ok) {
-    alert("Message sent!");
-    form.reset();
-  } else {
-    alert("Something went wrong");
-  }
-});
   </script>
 </body>
 
